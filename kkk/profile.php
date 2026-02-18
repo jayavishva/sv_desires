@@ -107,9 +107,9 @@ closeDBConnection($conn);
                     </div>
                     
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number *</label>
+                        <label for="phone" class="form-label">Phone Number</label>
                         <input type="tel" class="form-control" id="phone" name="phone" 
-                               value="<?php echo htmlspecialchars($user['phone'] ?? ''); ?>"required>
+                               value="<?php echo htmlspecialchars($user['phone'] ?? ''); ?>">
                     </div>
                     
                     <div class="mb-3">
@@ -119,14 +119,10 @@ closeDBConnection($conn);
                     
                     <div class="mb-3">
                         <label class="form-label">Account Type</label>
-                         <select name="role" class="form-control">
-                            <option value="user" 
-                                <?php if($user['role'] == 'user') echo 'selected'; ?>>
-                                User
-                            </option>
-                        </select>
+                        <input type="text" class="form-control" 
+                               value="<?php echo ucfirst($user['role']); ?>" readonly>
                     </div>
-
+                    
                     <div class="mb-3">
                         <label class="form-label">Member Since</label>
                         <input type="text" class="form-control" 

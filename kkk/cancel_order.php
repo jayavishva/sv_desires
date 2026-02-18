@@ -1,7 +1,5 @@
 <?php
-require_once 'includes/functions.php';
-require_once 'includes/auth.php';
-require_once 'config/database.php';
+require_once 'includes/header.php';
 requireLogin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -49,8 +47,4 @@ $stmt->bind_param("sdi", $refund_status, $refund_amount, $order_id);
 $stmt->execute();
 
 closeDBConnection($conn);
-
 redirect("orders.php?order_id=$order_id");
-
-// ONLY after all logic
-require_once 'includes/header.php';
